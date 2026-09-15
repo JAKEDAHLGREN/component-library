@@ -1,0 +1,23 @@
+<div class="<%= container_classes %>">
+  <% if header? %>
+    <div class="px-6 py-6 border-b border-zinc-100">
+      <%= header %>
+    </div>
+  <% end %>
+
+  <% if alert? %>
+    <div>
+      <%= alert %>
+    </div>
+  <% end %>
+
+  <div class="<%= body_classes %>">
+    <%= content %>
+  </div>
+
+  <% if footer? %>
+    <div class="px-6 py-6 border-t border-zinc-100">
+      <%= footer %>
+    </div>
+  <% end %>
+</div>

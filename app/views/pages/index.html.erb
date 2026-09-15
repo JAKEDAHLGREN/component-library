@@ -1,0 +1,42 @@
+<div class="flex items-center justify-center mx-auto px-5">
+  <%= render CardComponent.new(padding: :none) do |card| %>
+    <% card.with_header do %>
+      <div class="flex items-center justify-between px-6 py-4 border-b border-zinc-200">
+        <h1 class="text-lg font-semibold text-zinc-900">Component Library</h1>
+        <%= render(ButtonComponent.new(variant: :secondary)) { "View on GitHub" } %>
+      </div>
+    <% end %>
+
+    <% card.with_alert do %>
+      <div class="px-4">
+        <%= render AlertComponent.new do |alert| %>
+          <% alert.with_title { "Ready to compose" } %>
+          Three components, one Card. This is the currency of a component library.
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="px-6 py-6 space-y-6">
+      <p class="text-zinc-600">
+        Buttons, Card, and Alert are slot-based, theme-agnostic, and reused across
+        pages instead of copy-pasted.
+      </p>
+      <div class="flex gap-3">
+        <%= render(ButtonComponent.new(variant: :primary)) { "Get started" } %>
+        <%= render(ButtonComponent.new(variant: :danger)) { "Reset tokens" } %>
+      </div>
+
+      <div class="pt-2 border-t border-zinc-200">
+        <%= form_with url: "/submitted", method: :post do %>
+          <%= render TextFieldComponent.new(name: "email", label: "Email", type: "email",
+                    hint: "We never share this.") %>
+          <%= render SelectComponent.new(name: "role", label: "Role", selected: "designer",
+                    options: { engineer: "Engineer", designer: "Designer" }) %>
+          <div class="pt-1">
+            <%= render(ButtonComponent.new(type: "submit")) { "Join" } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

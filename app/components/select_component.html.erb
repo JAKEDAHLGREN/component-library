@@ -1,0 +1,22 @@
+<% id = "#{name}_field" %>
+
+<div class="space-y-1">
+  <% if label %>
+    <%= tag.label label, for: id, class: "block text-sm font-medium text-brand-700" %>
+  <% end %>
+
+  <%= tag.select name: name, id: id, class: final_classes, aria_invalid: (state == :error), **html_options.except(:class) do %>
+    <% if placeholder %>
+      <%= tag.option placeholder, value: "" %>
+    <% end %>
+    <% options.each do |value, option_label| %>
+      <%= tag.option option_label, value: value, selected: (value == selected) %>
+    <% end %>
+  <% end %>
+
+  <% if hint %>
+    <p class="text-xs <%= state == :error ? "text-destructive-700" : "text-zinc-500" %>">
+      <%= hint %>
+    </p>
+  <% end %>
+</div>
