@@ -20,7 +20,7 @@ gem "tailwindcss-rails"
 # Use ViewComponents https://github.com/viewcomponent/view_component
 gem "view_component"
 
-gem "json", "~> 2.0"
+gem "json", "~> 3.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
