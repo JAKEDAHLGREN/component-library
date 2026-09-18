@@ -1,0 +1,9 @@
+<% id = "#{name}_field" %>
+<div class="<%= wrapper_classes %>">
+  <%= tag.input name: name, id: id, value: value, type: "text", placeholder: " ",
+        autocomplete: "off", aria_invalid: (state == :error),
+        class: [ final_classes, "floating-input" ].compact.join(" "),
+        **html_options.except(:class) %>
+
+  <%= tag.label label, for: id, class: "floating-label" %>
+</div>
